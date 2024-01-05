@@ -4,6 +4,7 @@ import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import blog from '../views/blog'
 import blogd from '../views/blogd'
+import NewBlog from '../views/NewBlog'
 
 
 import MyAccount from '../views/dashboard/MyAccount.vue'
@@ -13,6 +14,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/new-blog',
+    name: 'NewBlog',
+    component: NewBlog
   },
   {
     path: '/sign-up',

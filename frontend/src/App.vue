@@ -2,8 +2,8 @@
 <template>
 <div>
     <Nav />  
-
     <Footer />
+    
 
   </div>
 
@@ -25,7 +25,7 @@ export default {
   name: 'App',
   components:{
     Nav,
-    Footer
+    Footer,
   },
   beforeCreate(){
     this.$store.commit('initializeStore')

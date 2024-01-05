@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md bg-success">
       <router-link to="/" class="navbar-brand fs-3 ms-3 text-secondary">ToBlog</router-link>
       <router-link to="/blog" class="navbar-brand fs-3 ms-3 text-info">Blog!:)</router-link>
-      <a href="#" class="nav-link mx-3 fs-4">About</a>
+      <router-link to="new-blog" class="nav-link mx-3 fs-4">New Blog!</router-link>
   
       <button class="navbar-toggler text-warning m-3" type="button" data-bs-toggle="collapse" data-bs-target="#btn">
         <i class="bi bi-body-text">T</i>
