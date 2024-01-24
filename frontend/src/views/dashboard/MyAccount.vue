@@ -16,7 +16,7 @@ export default {
         async logout(){
             console.log('Logout')
             await axios
-            .post('api/v1/token/logout/')
+            .post('token/logout/')
             .then(response => {
                 console.log('logout')
                 axios.defaults.headers.common['Authorization']=""

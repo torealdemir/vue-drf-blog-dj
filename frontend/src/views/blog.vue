@@ -8,12 +8,10 @@
                     <div class="card-body mb-2">
                         <h5 class="card-title">{{blog.title}}</h5>
                         <p class="card-text">{{blog.short_description}}</p>
-                        <router-link :to="{name:'blogd', params:{slug:blog.slug}}" class="ms-auto btn btn-primary">See More!</router-link>
+                        <router-link :to="{name:'blogd', params:{slug:blog.id}}" class="ms-auto btn btn-primary">See More!</router-link>
                     </div>
+            </div>
         </div>
-    </div>
-    
-
     </div>
 
 </div>
@@ -35,7 +33,7 @@ export default {
     mounted(){
         console.log('mounted!')
         axios
-            .get('api/v1/blogs/')
+            .get('blogs/')
             .then(response =>{
                 console.log(response.data)
                 this.blogs = response.data

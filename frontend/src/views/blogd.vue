@@ -5,7 +5,10 @@
                 <div 
                     class="card card mb-3 mt-3 ">
                         <div class="card-body mb-2">
-                            <h5 class="card-title">{{blogd.title}}</h5>
+                            <h3 class="card-title">{{blogd.title}}</h3>
+                            <h4 class="card-title">{{ blogd.short_description }}</h4>
+                            <p class="mx-auto">{{ blogd.created_by }}</p>
+
                             <p class="card-text">{{blogd.content}}</p>
                         </div>
             </div>
@@ -36,7 +39,7 @@ export default {
         const slug = this.$route.params.slug
 
         axios
-            .get(`api/v1/blogs/${slug}`)
+            .get(`blogs/${slug}/`)
             .then(response =>{
                 console.log(response.data)
                 this.blogd = response.data
