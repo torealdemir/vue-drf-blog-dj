@@ -53,6 +53,7 @@ export default {
               }
             })
             .then(response => {
+              this.blog.title=''
               this.blog.name=''
               this.blog.content=''
               this.blog.slug = ''

@@ -4,9 +4,9 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .serializers import BlogListSerializer, NoteSerializer, BlogListCreateSerializer
+from .serializers import BlogListSerializer, BlogListCreateSerializer
 
-from .models import Blog, Note
+from .models import Blog
 
 from rest_framework import viewsets
 from rest_framework import permissions, status
@@ -66,43 +66,11 @@ def get_blogd(request, slug):
     serializer = BlogListSerializer(blogd)
     return Response(serializer.data)
 
-# @api_view(['POST'])
-# def add_blog(request):
-#     # data = request.data
-#     # title = Blog.objects.get(title=title)
-#     # content = Blog.objects.get(long_description = content)
-
-#     blog = Blog.objects.create(
-#         title=request.data.get('title'),
-#         content=request.data.get('long_description')
-#     )
-
-#     blog.save()
-
-
-# def createNote(request):
-#     data=request.data
-#     note=Note.objects.create(
-#         body=data['content'],
-#         title=data['title']
-#     )
-#     serializer = NoteSerializer(note, many=False)
-#     return Response(serializer.data)
-    
-class NoteViewset(viewsets.ModelViewSet):
-    queryset = Note.objects.all()
-    serializer_class = NoteSerializer
 
 class BlogListViewset(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogListSerializer
 
 class BlogDetailViewset(viewsets.ModelViewSet):
-    queryset = Blog.objects.filter(slug=id)
+    queryset = Blog.objects.filter(slug=Blog.slug)
     serializer_class = BlogListCreateSerializer
-
-# class BlogCreateViewset(viewsets.ModelViewSet): 
-#     queryset = Blog.objects.create()
-#     serializer_class = BlogListSerializer
-#     permission_classes = permissions.AllowAny
-    

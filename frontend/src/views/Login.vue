@@ -98,7 +98,7 @@
                                 }
                                 console.log(JSON.stringify(error.response.data))
                             } else if (error.message) {
-                                this.errors.push('something went wront try again')
+                                this.errors.push('something went wrong try again')
                                 console.log(JSON.stringify(error))
                             }
                         })

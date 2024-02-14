@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Blog, Note
+from .models import Blog
 
 class BlogListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,8 +20,3 @@ class BlogListCreateSerializer(serializers.ModelSerializer):
 #         model = Blog
 #         fields = ('id', 'title', 'content', 'slug')
 
-
-class NoteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Note
-        fields = '__all__'
