@@ -8,7 +8,8 @@ router = routers.DefaultRouter()
 router.register('', views.BlogListViewset, basename="all-blogs")
 
 urlpatterns = [
-    path('addblog/', views.BlogCreateAPIView.as_view())
+    path('addblog/', views.BlogCreateAPIView.as_view()),
+    path('deleteblog/<int:pk>/', views.BlogDeleteApiView.as_view()),
 ]
 
 urlpatterns += router.urls

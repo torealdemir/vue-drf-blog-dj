@@ -35,3 +35,9 @@ def get_blogd(request, slug):
 class BlogListViewset(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogListSerializer
+
+
+class BlogDeleteApiView(generics.DestroyAPIView):
+    queryset = Blog.objects.all()
+    serializer_class=BlogListCreateSerializer
+    # permission_classes=[IsAuthenticated]

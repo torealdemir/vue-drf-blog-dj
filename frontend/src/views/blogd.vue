@@ -9,8 +9,8 @@
                             <h4 class="card-title my-4" >{{ blogd.short_description }}</h4>
                             <p class="my-4"><strong>{{ blogd.created_at }}</strong></p>
                             <p class="mx-auto">{{ blogd.created_by }}</p>
-
                             <p class="card-text">{{blogd.content}}</p>
+                            <button class="btn btn-danger">Delete!</button>
                         </div>
             </div>
         </div>

@@ -9,8 +9,9 @@
                         <h5 class="card-title">{{blog.title}}</h5>
                         <p class="card-text">{{blog.short_description}}</p>
                         <p ><strong>Created at:  {{ blog.created_at }}</strong></p>
-                        <p>{{ blog.username }}</p>
+                        <p>{{ blog.created_by_username}}</p>
                         <router-link :to="{name:'blogd', params:{slug:blog.id}}" class="ms-auto btn btn-primary">See More!</router-link>
+                        <button @click="deleteItem(blog.id)" class="btn btn-danger mx-4">Delete!</button>
                     </div>
             </div>
         </div>
@@ -33,23 +34,31 @@ export default {
         }
     },
     mounted(){
-        console.log('mounted!')
-        axios
-            .get('blogs/')
-            .then(response =>{
-                console.log(response.data)
-                this.blogs = response.data
-            })
+        this.loadPage()
+        
+            
     },
-    computed: {
-        createByUserName(){
-            if(this.blogs.created_by){
-                return this.blogs.created_by.username;
-                console.log(username)
-            } else {
-                return "";
-            }
-        }
+    methods: {
+        deleteItem (blogID) {
+            console.log(blogID)
+
+            axios
+            .delete(`blogs/deleteblog/${blogID}/`)
+            .then(console.log("DELETION SUCCESSFUL"))
+
+            this.loadPage()
+        },
+        loadPage(){
+            axios
+                .get('blogs/')
+                .then(response =>{
+                    console.log(response.data)
+                    this.blogs = response.data
+                    console.log("tore")
+            })
+        },
+
+        
     }
 }
 </script>
