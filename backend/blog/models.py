@@ -10,6 +10,7 @@ class Blog(models.Model):
     updated_at = models.DateField(auto_now= True)
     content = models.TextField()
     created_by = models.ForeignKey(User, on_delete= models.CASCADE, null = True)
+    image = models.ImageField(upload_to='images/')
     
     def __str__(self):
         return self.title

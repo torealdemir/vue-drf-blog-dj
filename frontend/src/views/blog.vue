@@ -39,15 +39,6 @@ export default {
             
     },
     methods: {
-        deleteItem (blogID) {
-            console.log(blogID)
-
-            axios
-            .delete(`blogs/deleteblog/${blogID}/`)
-            .then(console.log("DELETION SUCCESSFUL"))
-
-            this.loadPage()
-        },
         loadPage(){
             axios
                 .get('blogs/')
@@ -57,6 +48,18 @@ export default {
                     console.log("tore")
             })
         },
+
+        deleteItem (blogID) {
+            console.log(blogID)
+
+            axios
+            .delete(`blogs/deleteblog/${blogID}/`)
+            .then(console.log("DELETION SUCCESSFUL"))
+
+            this.loadPage()
+            window.location.reload()
+        },
+        
 
         
     }
