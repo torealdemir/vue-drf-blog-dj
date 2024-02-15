@@ -13,6 +13,7 @@ class Blog(models.Model):
     
     def __str__(self):
         return self.title
-    
 
-
+    @property
+    def created_by_username(self):
+        return self.created_by.username
