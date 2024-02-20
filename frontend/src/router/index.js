@@ -36,6 +36,11 @@ const routes = [
     component: MyAccount
   },
   {
+    path: '/dashboard/sign-up',
+    name: 'signup',
+    component: SignUp
+  },
+  {
     path: '/blog',
     name: 'blog',
     component: blog

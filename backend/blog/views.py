@@ -9,6 +9,7 @@ from rest_framework import viewsets
 from rest_framework import status
 
 from rest_framework.response import Response
+from rest_framework.parsers import (MultiPartParser, FormParser)
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
@@ -17,6 +18,7 @@ from rest_framework.authentication import TokenAuthentication
 class BlogCreateAPIView(generics.CreateAPIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    parser_classes=[MultiPartParser, FormParser]
     
 
     def post(self, request):
@@ -40,4 +42,4 @@ class BlogListViewset(viewsets.ModelViewSet):
 class BlogDeleteApiView(generics.DestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class=BlogListCreateSerializer
-    # permission_classes=[IsAuthenticated]
+    

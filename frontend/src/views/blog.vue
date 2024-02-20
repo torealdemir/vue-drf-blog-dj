@@ -9,6 +9,10 @@
                         <h5 class="card-title">{{blog.title}}</h5>
                         <p class="card-text">{{blog.short_description}}</p>
                         <p ><strong>Created at:  {{ blog.created_at }}</strong></p>
+                        <div class="w-50% h-50%">
+                            <img class="img-fluid img-thumbnail" :src="getImageUrl(blog.image)" alt="Blog Image">
+                        </div>
+                        
                         <p>{{ blog.created_by_username}}</p>
                         <router-link :to="{name:'blogd', params:{slug:blog.id}}" class="ms-auto btn btn-primary">See More!</router-link>
                         <button @click="deleteItem(blog.id)" class="btn btn-danger mx-4">Delete!</button>
@@ -26,7 +30,6 @@
 import axios from 'axios';
 
 
-
 export default {
     data() {
         return {
@@ -34,34 +37,42 @@ export default {
         }
     },
     mounted(){
-        this.loadPage()
-        
-            
+        this.loadPage()     
     },
     methods: {
-        loadPage(){
-            axios
-                .get('blogs/')
-                .then(response =>{
-                    console.log(response.data)
-                    this.blogs = response.data
-                    console.log("tore")
-            })
+        loadPage() {
+  try {
+    axios
+      .get('blogs/')
+      .then(response => {
+        console.log(response.data);
+        this.blogs = response.data;
+      })
+      .catch(error => {
+        console.log('u are not authenticated');
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+           
+            
         },
 
         deleteItem (blogID) {
-            console.log(blogID)
 
             axios
             .delete(`blogs/deleteblog/${blogID}/`)
-            .then(console.log("DELETION SUCCESSFUL"))
 
             this.loadPage()
             window.location.reload()
         },
-        
+        getImageUrl(imagePath) {
+            return `http://localhost:8000${imagePath}`
 
         
-    }
+    },
 }
+
+
 </script>

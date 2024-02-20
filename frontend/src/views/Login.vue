@@ -42,7 +42,6 @@
     <script>
     
     import axios from "axios";
-    import { Toast } from "bootstrap/dist/js/bootstrap.esm.min.js";
     import { toHandlers } from "vue";
      
     export default {
@@ -68,6 +67,7 @@
                 
                 if(this.username === ''){
                     this.errors.push('the username is missing!')
+                    this.$toast.warning('something went wrong try again')
                     console.log('empty email')
                 }
                 if(this.password === '' ){
@@ -99,6 +99,7 @@
                                 console.log(JSON.stringify(error.response.data))
                             } else if (error.message) {
                                 this.errors.push('something went wrong try again')
+                                this.$toast.warning('something went wrong try again')
                                 console.log(JSON.stringify(error))
                             }
                         })

@@ -1,5 +1,5 @@
 <template>
-    <footer class="mt-auto bg-dark footer fixed-bottom">
+    <footer class="mt-auto bg-dark footer fixed-bottom position-fixed">
       <div class="container text-light text-center">
         <p class="display-5 mb-2">
           ToCo 

@@ -1,11 +1,9 @@
 
 <template>
 <div>
-    <Nav />  
-    <Footer />
-    
-
-  </div>
+  <Nav />  
+  <Footer />
+</div>
 
 
 
@@ -18,8 +16,8 @@
 <script>
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { Toast } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import axios from 'axios';
+
 
 export default {
   name: 'App',
