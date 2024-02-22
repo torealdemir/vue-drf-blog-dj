@@ -1,7 +1,7 @@
 Vue Frontend DRF backend blog app
 
 ##backend -->DRF
-DRF Web Tokens Used for Authentication with 3 party app Djoser holding in local storage and deleting when logged out
+DRF Web Tokens Used for Authentication with 3 party app Djoser holding in local storage and deleting when logged out /br
 Corsheaders and axios used for connecting frontend and backend
 pillow used for handling image on backend
 
