@@ -1,13 +1,8 @@
 <template>
-
     <div class="d-flex justify-content-center align-items-center my-5">
         <div class="title w-50 d-flex justify-content-center w-100">
-            <div class="w-50 d-flex justify-content-center">
-    
-                
-    
-                <form  v-on:submit.prevent="submitForm"  class="col-md-4 col-md-offset-4">
-    
+            <div class="w-50 d-flex justify-content-center">    
+                <form  v-on:submit.prevent="submitForm"  class="col-md-4 col-md-offset-4">    
                 <div class="form-group">
                     <h1 class="my-3">Login!</h1>
           
@@ -43,9 +38,16 @@
     
     import axios from "axios";
     import { toHandlers } from "vue";
+    import 'vue-toast-notification/dist/theme-bootstrap.css'
+    import { useToast } from 'vue-toast-notification';
      
     export default {
         name:'Login',
+
+        setup(){
+            const toast = useToast();
+            return {toast}
+        },
     
     
         data(){
@@ -67,11 +69,12 @@
                 
                 if(this.username === ''){
                     this.errors.push('the username is missing!')
-                    this.$toast.warning('something went wrong try again')
                     console.log('empty email')
+                    this.triggerEmptyUserName()
                 }
                 if(this.password === '' ){
                     this.errors.push('password is missing')
+                    this.triggerEmptyPassword()
                 }
                 if(!this.errors.length){
                     const formData = {
@@ -88,8 +91,8 @@
                             axios.defaults.headers.common['Authorization'] = "Token " + token
 
                             localStorage.setItem('token', token)
-
                             this.$router.push('/dashboard/my-account')
+
                         })
                         .catch(error => {
                             if(error.response){
@@ -99,11 +102,19 @@
                                 console.log(JSON.stringify(error.response.data))
                             } else if (error.message) {
                                 this.errors.push('something went wrong try again')
-                                this.$toast.warning('something went wrong try again')
                                 console.log(JSON.stringify(error))
                             }
                         })
                 }
+            },
+            triggerEmptyUserName(){
+                this.toast.warning("Empty Username")
+            },
+            triggerEmptyPassword(){
+                this.toast.warning("Empty Password")
+            },
+            triggerSuccesToast(){
+                thist.toast.warning("Welcome!")
             }
         }
     }

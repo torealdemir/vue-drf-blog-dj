@@ -4,9 +4,6 @@
   <Nav />  
   <Footer />
 </div>
-
-
-
   <RouterView/>
 
 
@@ -17,6 +14,10 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import axios from 'axios';
+import 'vue-toast-notification/dist/theme-bootstrap.css'
+import { useToast } from 'vue-toast-notification';
+
+
 
 
 export default {
@@ -25,6 +26,11 @@ export default {
     Nav,
     Footer,
   },
+
+  setup(){
+   const toast = useToast();
+   return {toast}
+ },
   beforeCreate(){
     this.$store.commit('initializeStore')
 
@@ -34,7 +40,7 @@ export default {
     } else {
       axios.defaults.headers.common['Authorization'] = ""
     }
-  }
+  },
 }
 </script>
 <style lang="scss">
