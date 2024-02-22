@@ -7,6 +7,7 @@ The backend of this blog app is built with Django REST Framework (DRF) and inclu
 -DRF Web Tokens: Used for authentication, with the third-party app Djoser. User tokens are stored in local storage and deleted upon logout.
 *Corsheaders: Enables cross-origin resource sharing (CORS) between the frontend and backend.
 +Axios: Used for making HTTP requests from the frontend to the backend API.
+
 +Pillow: Handles image processing and manipulation on the backend.
 +Frontend (Vue3.js)
 +The frontend of the blog app is built with Vue.js (version 3) and incorporates the following features and libraries:
